@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cells.tres" type="TileSet" id=1]
+[ext_resource path="res://ghost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ghost.gd" type="Script" id=3]
+[ext_resource path="res://TileMap2.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap2" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+format = 1
+tile_data = PoolIntArray( -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -65536, 0, 0, -65534, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -65535, 1, 0, -65533, 1, 0 )
+
+[node name="KinematicBody2D" parent="TileMap" instance=ExtResource( 2 )]
+position = Vector2( 192, 0 )
+script = ExtResource( 3 )
